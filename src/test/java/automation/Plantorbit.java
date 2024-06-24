@@ -15,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.io.FileHandler;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -43,9 +44,16 @@ public class Plantorbit {
 	@Test
 	public void test2() throws IOException {
 		driver.findElement(By.xpath("//*[@id=\"shopify-section-header\"]/sticky-header/header/div/a[1]")).click();
-		driver.findElement(By.xpath("//*[@id=\"CustomerEmail\"]")).sendKeys("helllo@gmail.com");
-		driver.findElement(By.xpath("//*[@id=\"CustomerPassword\"]")).sendKeys("hdbfgslslslo");
+		driver.findElement(By.xpath("//*[@id=\"CustomerEmail\"]")).sendKeys("hello@gmail.com");
+		driver.findElement(By.xpath("//*[@id=\"CustomerPassword\"]")).sendKeys("abcgdhlkk");
 		driver.findElement(By.xpath("//*[@id=\"customer_login\"]/button")).sendKeys("selenium",Keys.ENTER);
+		String expec = "https://plantorbit.com/account";
+		if(driver.getCurrentUrl().equals(expec)) {
+			System.out.println("login successful");
+		}
+		else {
+			System.out.println("login failed");
+		}
 		driver.navigate().back();
 	}
 	@Test
@@ -116,5 +124,9 @@ public class Plantorbit {
 			String name = w.getText();
 			System.out.println(link+"---"+name);
 		}
+	}
+	@AfterTest
+	public void close() {
+		driver.quit();
 	}
 }

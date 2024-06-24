@@ -5,13 +5,7 @@
     <classes>
       <class name="automation.Plantorbit">
         <methods>
-          <include name="test7"/>
-          <include name="test4"/>
-          <include name="test9"/>
-          <include name="test6"/>
-          <include name="test3"/>
-          <include name="test5"/>
-          <include name="test2"/>
+          <include name="close"/>
           <include name="url"/>
           <include name="test8"/>
           <include name="setup"/>
